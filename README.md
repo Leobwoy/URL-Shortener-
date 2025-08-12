@@ -87,13 +87,35 @@ CREATE DATABASE url_shortener_test;  # For testing
 
 ### 5. Environment Configuration
 
-Create a `.env` file in the project root:
+Create a `.env` file in the project root by copying the example:
+
+```bash
+cp env.example .env
+```
+
+Then edit the `.env` file with your actual values:
 
 ```env
+# Database Configuration
 DATABASE_URL=postgresql://username:password@localhost/url_shortener
+
+# PostgreSQL Database Settings (for setup_postgres.py)
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASSWORD=your_actual_password_here
+DB_PORT=5432
+DB_NAME=url_db
+
+# Flask Configuration
 SECRET_KEY=your-secret-key-here
 FLASK_ENV=development
+FLASK_DEBUG=True
+
+# Application Configuration
+BASE_URL=http://localhost:5000
 ```
+
+**⚠️ Important:** Never commit your `.env` file to version control. It contains sensitive information!
 
 ### 6. Database Migrations
 
