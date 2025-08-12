@@ -6,7 +6,7 @@ load_dotenv()
 class Config:
     """Base configuration class."""
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://localhost/url_shortener'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://postgres:mynewpassword@localhost/url_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ENGINE_OPTIONS = {
         'pool_pre_ping': True,
@@ -24,7 +24,7 @@ class ProductionConfig(Config):
 class TestingConfig(Config):
     """Testing configuration."""
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/url_shortener_test'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
 config = {
     'development': DevelopmentConfig,
