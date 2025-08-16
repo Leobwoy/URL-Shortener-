@@ -8,3 +8,7 @@ gunicorn==21.2.0
 pytest==7.4.2
 pytest-flask==1.2.0
 validators==0.22.0
+PyJWT==2.8.0
+bcrypt==4.0.1
+Flask-Login==0.6.3
+Flask-CORS==4.0.0
